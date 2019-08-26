@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang=en>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head><meta name="generator" content="Hexo 3.8.0">
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Sequential Search (순차적 탐색)순차적 탐색(Sequential Search)은 말 그대로 리스트 안에 있는 원소를 하나씩 순차적으로 비교하면서 탐색하는 방법입니다. 예로 아래와 같은 문제가 있습니다. 문제 list = [17, 92, 18, 33, 58, 5, 33, 42];   위의 리스트에서 특정값 33, 900을 찾아서 해당 위치 번호">
+    <meta name="description" content="Sequential Search (순차적 탐색)순차적 탐색(Sequential Search)은 말 그대로 리스트 안에 있는 원소를 하나씩 순차적으로 비교하면서 탐색하는 방법입니다. 예로 아래와 같은 문제가 있습니다. 문제list = [17, 92, 18, 33, 58, 5, 33, 42];  위의 리스트에서 특정값 33, 900을 찾아서 해당 위치 번호를">
 <meta name="keywords" content="algorithm,search,sort">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Algorithm] Sequential Search (순차적 탐색)">
 <meta property="og:url" content="https://hapumee.github.io/2018/06/07/sequential-search/index.html">
 <meta property="og:site_name" content="Minimal Life">
-<meta property="og:description" content="Sequential Search (순차적 탐색)순차적 탐색(Sequential Search)은 말 그대로 리스트 안에 있는 원소를 하나씩 순차적으로 비교하면서 탐색하는 방법입니다. 예로 아래와 같은 문제가 있습니다. 문제 list = [17, 92, 18, 33, 58, 5, 33, 42];   위의 리스트에서 특정값 33, 900을 찾아서 해당 위치 번호">
+<meta property="og:description" content="Sequential Search (순차적 탐색)순차적 탐색(Sequential Search)은 말 그대로 리스트 안에 있는 원소를 하나씩 순차적으로 비교하면서 탐색하는 방법입니다. 예로 아래와 같은 문제가 있습니다. 문제list = [17, 92, 18, 33, 58, 5, 33, 42];  위의 리스트에서 특정값 33, 900을 찾아서 해당 위치 번호를">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://hapumee.github.io/images/search_and_sort/sequential_search_example1.jpg">
 <meta property="og:image" content="https://hapumee.github.io/images/search_and_sort/sequential_search_example2.jpg">
 <meta property="og:updated_time" content="2019-08-26T04:40:17.884Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Algorithm] Sequential Search (순차적 탐색)">
-<meta name="twitter:description" content="Sequential Search (순차적 탐색)순차적 탐색(Sequential Search)은 말 그대로 리스트 안에 있는 원소를 하나씩 순차적으로 비교하면서 탐색하는 방법입니다. 예로 아래와 같은 문제가 있습니다. 문제 list = [17, 92, 18, 33, 58, 5, 33, 42];   위의 리스트에서 특정값 33, 900을 찾아서 해당 위치 번호">
+<meta name="twitter:description" content="Sequential Search (순차적 탐색)순차적 탐색(Sequential Search)은 말 그대로 리스트 안에 있는 원소를 하나씩 순차적으로 비교하면서 탐색하는 방법입니다. 예로 아래와 같은 문제가 있습니다. 문제list = [17, 92, 18, 33, 58, 5, 33, 42];  위의 리스트에서 특정값 33, 900을 찾아서 해당 위치 번호를">
 <meta name="twitter:image" content="https://hapumee.github.io/images/search_and_sort/sequential_search_example1.jpg">
     
     
@@ -68,7 +68,7 @@
         
       </ul>
     </span>
-    <br/>
+    <br>
     <span id="actions">
       <ul>
         
@@ -85,7 +85,7 @@
       <span id="i-top" class="info" style="display:none;">Back to top</span>
       <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
-    <br/>
+    <br>
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://hapumee.github.io/2018/06/07/sequential-search/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
@@ -110,7 +110,7 @@
     
     <div class="content index my4">
         
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
@@ -120,7 +120,7 @@
 
 
     <div class="meta">
-      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <span class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
         <span itemprop="name">Angela MIN</span>
       </span>
       
@@ -143,9 +143,7 @@
   <div class="content" itemprop="articleBody">
     <h2 id="Sequential-Search-순차적-탐색"><a href="#Sequential-Search-순차적-탐색" class="headerlink" title="Sequential Search (순차적 탐색)"></a>Sequential Search (순차적 탐색)</h2><p>순차적 탐색(Sequential Search)은 말 그대로 리스트 안에 있는 원소를 하나씩 순차적으로 비교하면서 탐색하는 방법입니다.</p>
 <p>예로 아래와 같은 문제가 있습니다.</p>
-<h2 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h2><p style="border: 1px solid; padding: 1px 0px 23px 23px;">
-list = [17, 92, 18, 33, 58, 5, 33, 42];
-</p>
+<h2 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h2><p style="border: 1px solid; padding: 1px 0px 23px 23px;"><br>list = [17, 92, 18, 33, 58, 5, 33, 42];<br></p>
 
 <p>위의 리스트에서 특정값 <span style="color: blue">33, 900</span>을 찾아서 해당 위치 번호를 반환하시오.<br>찾고자 하는 값이 없다면 -1을 반환하시오.<br><br></p>
 <h3 id="리스트에서-33-찾기"><a href="#리스트에서-33-찾기" class="headerlink" title="[리스트에서 33 찾기]"></a>[리스트에서 33 찾기]</h3><p>아래와 같은 과정으로 리스트에서 33을 찾게 될 것입니다.</p>
@@ -159,7 +157,6 @@ list = [17, 92, 18, 33, 58, 5, 33, 42];
 <p><img src="/images/search_and_sort/sequential_search_example2.jpg" alt="Sequential Search Example 2"></p>
 <h2 id="Code-in-Javascript"><a href="#Code-in-Javascript" class="headerlink" title="Code (in Javascript)"></a>Code (in Javascript)</h2><p>자바스크립트 코드로 구현해 보면 아래와 같습니다.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Find the position(index) of specific element from the list</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * Input: the list</span></span><br><span class="line"><span class="comment"> * Output: index of the element</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> input_list = [<span class="number">17</span>, <span class="number">92</span>, <span class="number">18</span>, <span class="number">33</span>, <span class="number">58</span>, <span class="number">5</span>, <span class="number">33</span>, <span class="number">42</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> search_index = <span class="function"><span class="keyword">function</span> (<span class="params">list, element</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; list.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (element == list[i]) &#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">main</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// example 1</span></span><br><span class="line">    <span class="built_in">console</span>.log(search_index(input_list, <span class="number">33</span>)); <span class="comment">// 3</span></span><br><span class="line">    <span class="comment">// example 2</span></span><br><span class="line">    <span class="built_in">console</span>.log(search_index(input_list, <span class="number">900</span>)); <span class="comment">// -1</span></span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="Time-Complexity-복잡도"><a href="#Time-Complexity-복잡도" class="headerlink" title="Time Complexity (복잡도)"></a>Time Complexity (복잡도)</h2><p>앞서의 <span style="color:blue">33</span>을 찾는 예에서, 만약 33이 리스트의 가장 첫 요소라면 탐색을 1회 하게 될 것입니다.<br>만약 33이 리스트의 두 번째 요소라면 2회를 탐색하게 될 것입니다.</p>
 <p>33은 리스트에서 네 번째 요소이기 때문에 총 네 번을 탐색하여 그 위치를 찾아내었습니다.</p>
 <p>만약, 33이 리스트의 가장 마지막 요소라면 리스트 길이만큼인 8회를 탐색하여 위치를 찾아내게 될 것입니다.</p>

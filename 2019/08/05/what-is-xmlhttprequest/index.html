@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang=en>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head><meta name="generator" content="Hexo 3.8.0">
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,11 +65,11 @@
         
       </ul>
     </span>
-    <br/>
+    <br>
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2019/08/19/process-and-thread/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/2019/08/23/async-and-await/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" href="/2019/07/12/promise-and-jquery-deferred-object/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -82,7 +82,7 @@
       <span id="i-top" class="info" style="display:none;">Back to top</span>
       <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
-    <br/>
+    <br>
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://hapumee.github.io/2019/08/05/what-is-xmlhttprequest/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
@@ -107,7 +107,7 @@
     
     <div class="content index my4">
         
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
@@ -117,7 +117,7 @@
 
 
     <div class="meta">
-      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <span class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
         <span itemprop="name">Angela MIN</span>
       </span>
       
@@ -141,7 +141,8 @@
     <h1 id="What-is-XMLHttpRequest"><a href="#What-is-XMLHttpRequest" class="headerlink" title="What is XMLHttpRequest"></a>What is XMLHttpRequest</h1><ul>
 <li>XMLHttpRequest :<br>자바스크립트로 HTTP Request를 다루는 브라우저 내장형 객체이다.<br>파일 업로드/다운로드, 진행상황 추적 등을 다룰 수 있다.</li>
 </ul>
-<dl><dt>웹서버에서 오는 데이터 요청을 다루는 객체이다.<br>: 페이지 리로드 없이 웹 페이지를 업데이트할 수 있다.<br>: 서버에 데이터를 요청하고 페이지를 리로드할 수 있다.<br>: 서버에서 데이터를 받아 페이지를 리로드 할 수 있다.</dt><dd>백그라운드에서 서버로 데이터를 보낼 수 있다.</dd></dl><p>{example}<br>let xhttp = new XMLHttpRequest(); // creates an XMLHttpRequest object (XMLHttpRequest 객체를 생성한다.)</p>
+<p>웹서버에서 오는 데이터 요청을 다루는 객체이다.<br>: 페이지 리로드 없이 웹 페이지를 업데이트할 수 있다.<br>: 서버에 데이터를 요청하고 페이지를 리로드할 수 있다.<br>: 서버에서 데이터를 받아 페이지를 리로드 할 수 있다.<br>: 백그라운드에서 서버로 데이터를 보낼 수 있다.</p>
+<p>{example}<br>let xhttp = new XMLHttpRequest(); // creates an XMLHttpRequest object (XMLHttpRequest 객체를 생성한다.)</p>
 <p>xhttp.onreadystatechange = function() { // onreadystatechange property : specifies a function to be executed every time the status of the XMLHttpRequest object changes<br>// (onreadystatechange 프로퍼티는 XMLHttpRequest 객체의 상태가 변경될 때마다 수행될 함수를 정의한다.)<br>    if (this.readyState == 4 &amp;&amp; this.status == 200) { // the response is ready (response가 준비되었다.)<br>        // Typical action to be performed when the document is ready:<br>        document.getElementById(“demo”).innerHTML = xhttp.responseText; // responseText property : returns the server response as a text string.<br>        // (responseText 프로퍼티가 서버 응답을 텍스트 형태로 반환한다.)<br>    }<br>};<br>xhttp.open(“GET”, “filename”, true);<br>xhttp.send();<br>{example}</p>
 <ul>
 <li>reference :<br><a href="https://javascript.info/xmlhttprequest" target="_blank" rel="noopener">https://javascript.info/xmlhttprequest</a><br><a href="https://www.w3schools.com/xml/xml_http.asp" target="_blank" rel="noopener">https://www.w3schools.com/xml/xml_http.asp</a></li>
