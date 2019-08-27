@@ -469,10 +469,11 @@ body {
   -webkit-hyphens: auto;
 }
 .content code {
-  hyphens: manual;
-  -moz-hyphens: manual;
-  -ms-hyphens: manual;
-  -webkit-hyphens: manual;
+/** cutomized **/
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7253e;
+  background-color: #f9f2f4;
 }
 .content a {
   color: #363533;
@@ -1426,10 +1427,6 @@ code {
   padding: 0 5px;
   border-radius: 2px;
   -webkit-border-radius: 2px;
-  padding: 2px 4px /** customized **/;
-  font-size: 90% /** customized **/;
-  color: #c7253e /** customized **/;
-  background-color: #f9f2f4 /** customized **/;
 }
 .highlight {
   overflow-x: auto;
