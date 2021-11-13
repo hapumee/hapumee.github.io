@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang=en>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Merge Sort (병합 정렬)병합 정렬(Merge Sort)은 재귀 호출(Recursive Call)을 이용하여 정렬하는 알고리즘입니다.병합 정렬은 리스트를 두 그룹으로 나누어 각각을 정렬하고 그 정렬된 두 그룹을 합하는 방식입니다.나뉘어진 그룹은 내부적으로 다시 두 그룹으로 나누고 각각을 정렬한 후 정렬된 두 그룹을 합합니다.이러한 방식을 재귀(Rec">
+<meta name="keywords" content="algorithm,search,sort">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Algorithm] Merge Sort (병합 정렬)">
+<meta property="og:url" content="https://hapumee.github.io/2018/06/20/merge-sort/index.html">
+<meta property="og:site_name" content="Minimal Life">
+<meta property="og:description" content="Merge Sort (병합 정렬)병합 정렬(Merge Sort)은 재귀 호출(Recursive Call)을 이용하여 정렬하는 알고리즘입니다.병합 정렬은 리스트를 두 그룹으로 나누어 각각을 정렬하고 그 정렬된 두 그룹을 합하는 방식입니다.나뉘어진 그룹은 내부적으로 다시 두 그룹으로 나누고 각각을 정렬한 후 정렬된 두 그룹을 합합니다.이러한 방식을 재귀(Rec">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://hapumee.github.io/images/search_and_sort/merge_sort_example.png">
+<meta property="og:updated_time" content="2019-08-26T04:40:17.914Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Algorithm] Merge Sort (병합 정렬)">
+<meta name="twitter:description" content="Merge Sort (병합 정렬)병합 정렬(Merge Sort)은 재귀 호출(Recursive Call)을 이용하여 정렬하는 알고리즘입니다.병합 정렬은 리스트를 두 그룹으로 나누어 각각을 정렬하고 그 정렬된 두 그룹을 합하는 방식입니다.나뉘어진 그룹은 내부적으로 다시 두 그룹으로 나누고 각각을 정렬한 후 정렬된 두 그룹을 합합니다.이러한 방식을 재귀(Rec">
+<meta name="twitter:image" content="https://hapumee.github.io/images/search_and_sort/merge_sort_example.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>[Algorithm] Merge Sort (병합 정렬)</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+        
+      </ul>
+    </span>
+    <br>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/07/09/quick-sort/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/06/19/insertion-sort/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://hapumee.github.io/2018/06/20/merge-sort/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://hapumee.github.io/2018/06/20/merge-sort/&text=[Algorithm] Merge Sort (병합 정렬)"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://hapumee.github.io/2018/06/20/merge-sort/&title=[Algorithm] Merge Sort (병합 정렬)"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://hapumee.github.io/2018/06/20/merge-sort/&is_video=false&description=[Algorithm] Merge Sort (병합 정렬)"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[Algorithm] Merge Sort (병합 정렬)&body=Check out this article: https://hapumee.github.io/2018/06/20/merge-sort/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://hapumee.github.io/2018/06/20/merge-sort/&title=[Algorithm] Merge Sort (병합 정렬)"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://hapumee.github.io/2018/06/20/merge-sort/&title=[Algorithm] Merge Sort (병합 정렬)"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://hapumee.github.io/2018/06/20/merge-sort/&title=[Algorithm] Merge Sort (병합 정렬)"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://hapumee.github.io/2018/06/20/merge-sort/&title=[Algorithm] Merge Sort (병합 정렬)"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://hapumee.github.io/2018/06/20/merge-sort/&name=[Algorithm] Merge Sort (병합 정렬)&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Merge-Sort-병합-정렬"><span class="toc-number">1.</span> <span class="toc-text">Merge Sort (병합 정렬)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#문제"><span class="toc-number">2.</span> <span class="toc-text">문제</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#언뜻-생각한-알고리즘"><span class="toc-number">2.1.</span> <span class="toc-text">[언뜻 생각한 알고리즘]</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code-in-Javascript-1"><span class="toc-number">3.</span> <span class="toc-text">Code (in Javascript) #1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code-in-Javascript-2"><span class="toc-number">4.</span> <span class="toc-text">Code (in Javascript) #2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Time-Complexity-복잡도"><span class="toc-number">5.</span> <span class="toc-text">Time Complexity (복잡도)</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        [Algorithm] Merge Sort (병합 정렬)
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <span itemprop="name">Angela MIN</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-06-20T08:48:47.000Z" itemprop="datePublished">2018-06-20</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/search/">search</a>, <a class="tag-link" href="/tags/sort/">sort</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="Merge-Sort-병합-정렬"><a href="#Merge-Sort-병합-정렬" class="headerlink" title="Merge Sort (병합 정렬)"></a>Merge Sort (병합 정렬)</h2><p>병합 정렬(Merge Sort)은 재귀 호출(Recursive Call)을 이용하여 정렬하는 알고리즘입니다.<br>병합 정렬은 리스트를 두 그룹으로 나누어 각각을 정렬하고 그 정렬된 두 그룹을 합하는 방식입니다.<br>나뉘어진 그룹은 내부적으로 다시 두 그룹으로 나누고 각각을 정렬한 후 정렬된 두 그룹을 합합니다.<br>이러한 방식을 재귀(Recursive) 방식이라고 합니다.</p>
+<p>리스트를 쪼개어서 무엇인가 수행을 하는 방식은 분할 정복(<a href="https://en.wikipedia.org/wiki/Divide_and_conquer_algorithm#Divide_and_conquer" target="_blank" rel="noopener">Divide and Conquer</a>)이라고 하는데, 병합 정렬이 바로 재귀적으로 분할 정복(Divide and conquer recursively)을 하는 경우라 할 수 있겠습니다.</p>
+<p><img src="/images/search_and_sort/merge_sort_example.png" alt="Merge Sort Example"><br><span style="font-size: 10px; float: right;"><strong>[그림 1] 병합 정렬(Merge Sort)의 예</strong></span><br><span style="font-size: 10px; float: right;"><em>출처: <a href="https://en.wikipedia.org/wiki/Merge_sort" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Merge_sort</a></em></span></p>
+<h2 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h2><p style="border: 1px solid; padding: 1px 0px 23px 23px;"><br>list = [35, 9, 2, 85, 17];<br></p>
+
+<p>위의 리스트 안의 자료를 작은 수부터 큰 수 순서로 배열하는 정렬 알고리즘을 만드시오.<br><br></p>
+<h3 id="언뜻-생각한-알고리즘"><a href="#언뜻-생각한-알고리즘" class="headerlink" title="[언뜻 생각한 알고리즘]"></a>[언뜻 생각한 알고리즘]</h3><p>step 1: 리스트의 가운데인 2를 중심으로 두 그룹으로 나눕니다.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt; g1 = [35, 9, 2], g2 = [85, 17] </p>
+<p>(* 리스트 요소의 개수가 홀수개이면 한 그룹은 다른 그룹보다 개수가 하나 많은 그룹이 될 것입니다. 문제될 것은 없습니다.)</p>
+<p>step 2: g1 그룹을 가운데인 9를 중심으로 두 그룹으로 나누고, g2 그룹을 두 그룹으로 나눕니다.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt; g1_1 = [35, 9], g1_2 = [2], g2_1 = [85], g2_2 = [17]</p>
+<p>step 3: g1_1 그룹을 두 그룹으로 나눕니다. g1_2 그룹과 g2 그룹은 이미 더 이상 나눌 수 없는 하위 그룹들로 나뉘었기 때문에 별다른 것을 수행하지 않습니다.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt; g1_1_1 = [35], g1_1_2 = [9], g1_2 = [2], g2_1 = [85], g2_2 = [17]</p>
+<p>** <span style="font-size: 15px; color: blue;">리스트를 모두 divide 하였습니다.</span></p>
+<p>step 4: g1_1_1 의 값(35)과 g1_1_2 의 값(9)을 비교하여 순서를 정렬하고 한 그룹으로 묶습니다.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt; g1_1 = [9, 35], g1_2 = [2], g2_1 = [85], g2_2 = [17]</p>
+<p>step 5: g1_1 의 값(9, 35)과 g1_2 의 값(2)을 비교하여 순서를 정렬하고 한 그룹으로 묶습니다.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마찬가지로, g2_1의 값(85)과 g2_2의 값(17)을 비교하여 순서를 정렬하고 한 그룹으로 묶습니다.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt; g1 = [2, 9, 35], g2 = [17, 85]</p>
+<p>step 6: g1 의 값(2, 9, 35)과 g2 의 값(17, 85)을 비교하여 순서를 정렬하고 한 그룹으로 묶습니다.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt; g = [2, 9, 17, 35, 85]</p>
+<p>(이렇게 구구절절 설명하려니 혼란스러우면서도 이런 과정의 설명이 의미가 있나 싶기도 하네요.)</p>
+<p>(1) 계속 작은 그룹으로 분할하여 (2) 값들을 비교한 후 (3) 정렬된 그룹을 만들어 나가는 과정은 위의 <strong>[그림 1]</strong>로도 이해하실 수 있을 것이라 생각합니다.</p>
+<h2 id="Code-in-Javascript-1"><a href="#Code-in-Javascript-1" class="headerlink" title="Code (in Javascript) #1"></a>Code (in Javascript) #1</h2><p>위의 과정을 자바스크립트 코드로 구현해 보면 아래와 같이 구성할 수 있습니다.</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Make an ordered list from the smallest number to the largest number</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * Input: the list</span></span><br><span class="line"><span class="comment"> * Output: the ordered list</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> merge_sort = <span class="function"><span class="keyword">function</span> (<span class="params">list</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// if the length of input list is less than 1,</span></span><br><span class="line">    <span class="comment">// it is not needed to sort</span></span><br><span class="line">    <span class="keyword">if</span> (list.length === <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// divide two groups and sort them respectively</span></span><br><span class="line">    <span class="keyword">var</span> mid = <span class="built_in">Math</span>.round(list.length / <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> group1 = merge_sort(list.slice(<span class="number">0</span>, mid));</span><br><span class="line">    <span class="keyword">var</span> group2 = merge_sort(list.slice(mid, list.length));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// merge two groups</span></span><br><span class="line">    <span class="keyword">var</span> result = [];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (group1.length &gt; <span class="number">0</span> &amp;&amp; group2.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (group1[<span class="number">0</span>] &lt; group2[<span class="number">0</span>]) &#123;</span><br><span class="line">            result.push(group1.splice(<span class="number">0</span>, <span class="number">1</span>)[<span class="number">0</span>]);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            result.push(group2.splice(<span class="number">0</span>, <span class="number">1</span>)[<span class="number">0</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// if there are elements which are remained in 'group1', combine 'group1' to 'result'</span></span><br><span class="line">    <span class="keyword">if</span> (group1.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        result = result.concat(group1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// if there are elements which are remained in 'group2', combine 'group2' to 'result'</span></span><br><span class="line">    <span class="keyword">if</span> (group2.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        result = result.concat(group2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">main</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> list1 = [<span class="number">35</span>, <span class="number">9</span>, <span class="number">2</span>, <span class="number">85</span>, <span class="number">17</span>]; <span class="comment">// [문제]의 예</span></span><br><span class="line">    <span class="built_in">console</span>.log(merge_sort(list1)); <span class="comment">// [2, 9, 17, 35, 85]</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> list2 = [<span class="number">38</span>, <span class="number">27</span>, <span class="number">43</span>, <span class="number">3</span>, <span class="number">9</span>, <span class="number">82.</span>, <span class="number">10</span>]; <span class="comment">// [그림 1]의 예</span></span><br><span class="line">    <span class="built_in">console</span>.log(merge_sort(list2)); <span class="comment">// [3, 9, 10, 27, 38, 43, 82]</span></span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Code-in-Javascript-2"><a href="#Code-in-Javascript-2" class="headerlink" title="Code (in Javascript) #2"></a>Code (in Javascript) #2</h2><p>인덱스(index)를 이용하는 방법도 있다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Make an ordered list from the smallest number to the largest number</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * Input: the list</span></span><br><span class="line"><span class="comment"> * Output: the ordered list</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// divide two groups and sort them respectively</span></span><br><span class="line"><span class="keyword">var</span> merge_sort = <span class="function"><span class="keyword">function</span> (<span class="params">list</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// if the length of input list is less than 1,</span></span><br><span class="line">    <span class="comment">// it is not needed to sort</span></span><br><span class="line">    <span class="keyword">if</span> (list.length === <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// divide two groups and sort them</span></span><br><span class="line">    <span class="keyword">var</span> mid = <span class="built_in">Math</span>.round(list.length / <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> group1 = merge_sort(list.slice(<span class="number">0</span>, mid));</span><br><span class="line">    <span class="keyword">var</span> group2 = merge_sort(list.slice(mid, list.length));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// merge two groups</span></span><br><span class="line">    <span class="keyword">var</span> result = [];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> indexGroup1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> indexGroup2 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (indexGroup1 &lt; group1.length &amp;&amp; indexGroup2 &lt; group2.length) &#123;</span><br><span class="line">        <span class="keyword">if</span> (group1[indexGroup1] &lt; group2[indexGroup2]) &#123;</span><br><span class="line">            result.push(group1[indexGroup1]);</span><br><span class="line">            indexGroup1++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            result.push(group2[indexGroup2]);</span><br><span class="line">            indexGroup2++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    result = result.concat(group1.slice(indexGroup1));</span><br><span class="line">    result = result.concat(group2.slice(indexGroup2));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">main</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> list1 = [<span class="number">35</span>, <span class="number">9</span>, <span class="number">2</span>, <span class="number">85</span>, <span class="number">17</span>]; <span class="comment">// [문제]의 예</span></span><br><span class="line">    <span class="built_in">console</span>.log(merge_sort(list1)); <span class="comment">// [2, 9, 17, 35, 85]</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> list2 = [<span class="number">38</span>, <span class="number">27</span>, <span class="number">43</span>, <span class="number">3</span>, <span class="number">9</span>, <span class="number">82.</span>, <span class="number">10</span>]; <span class="comment">// [그림 1]의 예</span></span><br><span class="line">    <span class="built_in">console</span>.log(merge_sort(list2)); <span class="comment">// [3, 9, 10, 27, 38, 43, 82]</span></span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Time-Complexity-복잡도"><a href="#Time-Complexity-복잡도" class="headerlink" title="Time Complexity (복잡도)"></a>Time Complexity (복잡도)</h2><p>분할 정복(Divide and Conquer)은 잘 활용하면 계산 복잡도가 더 낮은 효율적인 알고리즘을 만드는 데 도움이 된다고 합니다.<br>분할 정복을 이용한 계산 복잡도는 <span style="color:blue">O(n·log n)</span>으로 선택 정렬(<a href="https://hapumee.github.io/2018/06/14/selection-sort/" target="_blank">Selection Sort</a>)이나 삽입 정렬(<a href="https://hapumee.github.io/2018/06/19/insertion-sort/" target="_blank">Insertion Sort</a>)의 계산 복잡도 O(n²)보다 낮습니다.</p>
+<p>어떻게 하여 시간 복잡도가 <span style="color:blue">O(n·log n)</span>으로 정의할 수 있는지는 아래의 사이트에 자세한 설명이 있습니다.</p>
+<ul>
+<li><span style="font-size: 13px;"><em>English: <a href="https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/analysis-of-merge-sort" target="_blank">Analysis of merge sort</a></em></span></li>
+<li><span style="font-size: 13px;"><em>Korean: <a href="https://ko.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/analysis-of-merge-sort" target="_blank">병합 정렬 분석하기</a></em></span></li>
+</ul>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Merge-Sort-병합-정렬"><span class="toc-number">1.</span> <span class="toc-text">Merge Sort (병합 정렬)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#문제"><span class="toc-number">2.</span> <span class="toc-text">문제</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#언뜻-생각한-알고리즘"><span class="toc-number">2.1.</span> <span class="toc-text">[언뜻 생각한 알고리즘]</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code-in-Javascript-1"><span class="toc-number">3.</span> <span class="toc-text">Code (in Javascript) #1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code-in-Javascript-2"><span class="toc-number">4.</span> <span class="toc-text">Code (in Javascript) #2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Time-Complexity-복잡도"><span class="toc-number">5.</span> <span class="toc-text">Time Complexity (복잡도)</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://hapumee.github.io/2018/06/20/merge-sort/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://hapumee.github.io/2018/06/20/merge-sort/&text=[Algorithm] Merge Sort (병합 정렬)"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://hapumee.github.io/2018/06/20/merge-sort/&title=[Algorithm] Merge Sort (병합 정렬)"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://hapumee.github.io/2018/06/20/merge-sort/&is_video=false&description=[Algorithm] Merge Sort (병합 정렬)"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[Algorithm] Merge Sort (병합 정렬)&body=Check out this article: https://hapumee.github.io/2018/06/20/merge-sort/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://hapumee.github.io/2018/06/20/merge-sort/&title=[Algorithm] Merge Sort (병합 정렬)"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://hapumee.github.io/2018/06/20/merge-sort/&title=[Algorithm] Merge Sort (병합 정렬)"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://hapumee.github.io/2018/06/20/merge-sort/&title=[Algorithm] Merge Sort (병합 정렬)"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://hapumee.github.io/2018/06/20/merge-sort/&title=[Algorithm] Merge Sort (병합 정렬)"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://hapumee.github.io/2018/06/20/merge-sort/&name=[Algorithm] Merge Sort (병합 정렬)&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+      Copyright &copy; 2019 Angela MIN
+      <br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>,
+      Theme <a href="https://probberechts.github.io/hexo-theme-cactus/" target="_blank">Cactus</a>
+      <br>
+      Contact_
+      
+      
+      
+        
+          <a class="icon" target="_blank" href="http://github.com/hapumee">
+            <i class="fab fa-github"></i><!--
+      ---></a><!--
+    ---><!--
+    ---> and 
+        
+      
+        
+          <a class="icon" target="_blank" href="https://www.linkedin.com/in/young-sun-angela-min-637b036b/">
+            <i class="fab fa-linkedin"></i><!--
+      ---></a><!--
+    ---><!--
+    --->.
+        
+      
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'hapumee-minimal-life';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+

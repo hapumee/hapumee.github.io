@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang=en>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="What is Async and Await?async/await라고 하는 보다 편한 방식으로 Promise를 다루는 특별한 구문이 있습니다. Async functionasync는 항상 Promise를 반환합니다.문법은 아주 간단합니다. funciton 앞에 async를 추가하기만 하면 됩니다.예를 들어, 아래의 함수는 결과가 1인 resolved Promi">
+<meta name="keywords" content="javascript,promise,async,await">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Promise] Async and Await">
+<meta property="og:url" content="https://hapumee.github.io/2019/08/23/async-and-await/index.html">
+<meta property="og:site_name" content="Minimal Life">
+<meta property="og:description" content="What is Async and Await?async/await라고 하는 보다 편한 방식으로 Promise를 다루는 특별한 구문이 있습니다. Async functionasync는 항상 Promise를 반환합니다.문법은 아주 간단합니다. funciton 앞에 async를 추가하기만 하면 됩니다.예를 들어, 아래의 함수는 결과가 1인 resolved Promi">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-27T07:51:19.592Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Promise] Async and Await">
+<meta name="twitter:description" content="What is Async and Await?async/await라고 하는 보다 편한 방식으로 Promise를 다루는 특별한 구문이 있습니다. Async functionasync는 항상 Promise를 반환합니다.문법은 아주 간단합니다. funciton 앞에 async를 추가하기만 하면 됩니다.예를 들어, 아래의 함수는 결과가 1인 resolved Promi">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>[Promise] Async and Await</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+        
+      </ul>
+    </span>
+    <br>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2019/01/07/top-javascript-framework-2019/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://hapumee.github.io/2019/08/23/async-and-await/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://hapumee.github.io/2019/08/23/async-and-await/&text=[Promise] Async and Await"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://hapumee.github.io/2019/08/23/async-and-await/&title=[Promise] Async and Await"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://hapumee.github.io/2019/08/23/async-and-await/&is_video=false&description=[Promise] Async and Await"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[Promise] Async and Await&body=Check out this article: https://hapumee.github.io/2019/08/23/async-and-await/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://hapumee.github.io/2019/08/23/async-and-await/&title=[Promise] Async and Await"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://hapumee.github.io/2019/08/23/async-and-await/&title=[Promise] Async and Await"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://hapumee.github.io/2019/08/23/async-and-await/&title=[Promise] Async and Await"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://hapumee.github.io/2019/08/23/async-and-await/&title=[Promise] Async and Await"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://hapumee.github.io/2019/08/23/async-and-await/&name=[Promise] Async and Await&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-Async-and-Await"><span class="toc-number">1.</span> <span class="toc-text">What is Async and Await?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Async-function"><span class="toc-number">1.1.</span> <span class="toc-text">Async function</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Await"><span class="toc-number">1.2.</span> <span class="toc-text">Await</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Error-Handling"><span class="toc-number">1.3.</span> <span class="toc-text">Error Handling</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#async-await와-promise-then-catch"><span class="toc-number">1.4.</span> <span class="toc-text">async/await와 promise.then/catch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#async-await와-Promise-all"><span class="toc-number">1.5.</span> <span class="toc-text">async/await와 Promise.all</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#summary"><span class="toc-number">1.6.</span> <span class="toc-text">summary</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#문제"><span class="toc-number">1.7.</span> <span class="toc-text">문제</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#code-1"><span class="toc-number">1.7.1.</span> <span class="toc-text">code #1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#code-2"><span class="toc-number">1.7.2.</span> <span class="toc-text">code #2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#code-3"><span class="toc-number">1.7.3.</span> <span class="toc-text">code #3</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        [Promise] Async and Await
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <span itemprop="name">Angela MIN</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2019-08-23T10:23:54.000Z" itemprop="datePublished">2019-08-23</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/async/">async</a>, <a class="tag-link" href="/tags/await/">await</a>, <a class="tag-link" href="/tags/javascript/">javascript</a>, <a class="tag-link" href="/tags/promise/">promise</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="What-is-Async-and-Await"><a href="#What-is-Async-and-Await" class="headerlink" title="What is Async and Await?"></a>What is Async and Await?</h1><p><code>async/await</code>라고 하는 보다 편한 방식으로 Promise를 다루는 특별한 구문이 있습니다.</p>
+<h2 id="Async-function"><a href="#Async-function" class="headerlink" title="Async function"></a>Async function</h2><p><code>async</code>는 항상 Promise를 반환합니다.<br>문법은 아주 간단합니다. <code>funciton</code> 앞에 <code>async</code>를 추가하기만 하면 됩니다.<br>예를 들어, 아래의 함수는 결과가 1인 resolved Promise를 반환합니다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test().then(alert); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure></p>
+<p>위의 예제를 Promise로 구현해 보면 아래와 같습니다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test().then(alert); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure></p>
+<p><code>async</code>의 사용은 사뭇 간단합니다.</p>
+<h2 id="Await"><a href="#Await" class="headerlink" title="Await"></a>Await</h2><p><code>await</code>는 오직 비동기 함수 안에서만 사용합니다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> value = <span class="keyword">await</span> promise;</span><br></pre></td></tr></table></figure></p>
+<p><code>await</code>는 Promise가 그 결과를 반환할 때까지 Javascript의 수행을 대기할 수 있게 합니다.</p>
+<p>다음은 1초 후에 resolve 되는 Promise에 대한 것으로 <em>done!!!</em>이라는 결과를 보여주는 예제입니다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> resolve(<span class="string">'done!!!'</span>), <span class="number">1000</span>)</span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> result = <span class="keyword">await</span> promise; <span class="comment">// promise가 resolve 될 때까지 기다린다.</span></span><br><span class="line">    </span><br><span class="line">    alert(result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test(); <span class="comment">// 'done!!!'</span></span><br></pre></td></tr></table></figure></p>
+<p><code>let result = await promise;</code> 에서 일단 Javascript의 수행을 멈추고 Promise가 resolve되면 Javascript를 다시 수행하여 <code>result</code>라는 결과로 반환합니다.</p>
+<p><code>await</code>는 문자 그대로, Promise가 resolve 될 때까지 Javascript 수행을 기다리게 하고, 수행이 재개되면 그 결과를 반환합니다.</p>
+<p>또한 <code>await</code>는 일반 함수(non-async 함수)에서는 사용할 수 없습니다. (syntax error가 발생합니다.)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function test() &#123;</span><br><span class="line">   let promise = Promise.resolve(1);</span><br><span class="line">   let result = await promise; // Uncaught SyntaxError: await is only valid in async function</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>앞서도 언급했듯이 <code>await</code>는 오직 비동기 함수에서만 동작합니다!<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">async function test() &#123;</span><br><span class="line">   let promise = Promise.resolve(1);</span><br><span class="line">   let result = await promise;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>await</code>는 비동기 함수 밖에서는 사용할 수 없으므로 아래의 코드는 동작하지 않을 것입니다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> response = <span class="keyword">await</span> fetch(<span class="string">'some-url'</span>);</span><br><span class="line"><span class="keyword">let</span> temp = <span class="keyword">await</span> response.json();</span><br></pre></td></tr></table></figure></p>
+<p>이런 경우 빈 <code>async</code> 함수로 묶어 주면 동작할 것입니다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(async () =&gt; &#123;</span><br><span class="line">    let response = await fetch(&apos;some-url&apos;);</span><br><span class="line">    let temp = await response.json();</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
+<h2 id="Error-Handling"><a href="#Error-Handling" class="headerlink" title="Error Handling"></a>Error Handling</h2><p>Promise가 정상적으로 resolve 된다면 <code>await promise</code>는 결과를 반환합니다. 그러나 만약 reject 된다면 에러를 반환하는데 이는 마치 <code>throw</code> 문장을 작성한 것과 같습니다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">async function test() &#123;</span><br><span class="line">    await Promise.reject(new Error(&apos;Error!!!));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test();</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">async function test() &#123;</span><br><span class="line">    throw new Error(&apos;Error!!!&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test();</span><br></pre></td></tr></table></figure>
+<p>실제로는 Promise가 reject 되기 전에 다소 시간이 소요되므로 <code>try..catch</code>에서 <code>throw</code>를 사용한 것과 같은 상황이 됩니다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">async function test() &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">        let response = await fetch(&apos;some-api&apos;);</span><br><span class="line">        let temp = await response.json();</span><br><span class="line">    &#125; catch (error) &#123;</span><br><span class="line">        alert(error);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test();</span><br></pre></td></tr></table></figure></p>
+<p><code>try..catch</code>가 없다면 <code>async</code> 함수를 호출하여 생성한 promise가 실패합니다. 이 때는 <code>.catch</code>를 추가하여 처리할 수 있습니다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">async function test() &#123;</span><br><span class="line">    let response = await fetch(&apos;some-api&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// test() 함수는 실패(reject)가 된다.</span><br><span class="line">test().catch(alert(&apos;Error!!!&apos;));</span><br></pre></td></tr></table></figure></p>
+<p><code>.catch</code>를 작성하지 않는다면 <strong>제어할 수 없는</strong> promise 에러를 얻게 됩니다.</p>
+<h2 id="async-await와-promise-then-catch"><a href="#async-await와-promise-then-catch" class="headerlink" title="async/await와 promise.then/catch"></a><code>async/await</code>와 <code>promise.then/catch</code></h2><p><code>async/await</code>를 사용할 때 <code>await</code>가 Promise를 대기하는 상황에 대해 처리하기 때문에, 사실상 <code>.then</code>은 거의 사용하지 않고 <code>.catch</code>는 <code>try..catch</code>로 주로 사용합니다.<br>그렇지만, <code>async</code> 함수 바깥에서는 <code>await</code>를 사용할 수 없기 때문에 에러 처리를 위해서는 <code>.then/catch</code>를 사용해야 합니다. (바로 위 예제에서의 5번 줄입니다.)</p>
+<h2 id="async-await와-Promise-all"><a href="#async-await와-Promise-all" class="headerlink" title="async/await와 Promise.all"></a><code>async/await</code>와 <code>Promise.all</code></h2><p>여러 개의 Promise를 대기해야 하는 상황이라면 <code>Promise.all</code>을 사용하고 이에 <code>await</code>를 적용합니다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// results의 배열을 대기한다.</span><br><span class="line">let results = await Promise.all([</span><br><span class="line">    fetch(url1),</span><br><span class="line">    fetch(url2),</span><br><span class="line">    ...</span><br><span class="line">]);</span><br></pre></td></tr></table></figure></p>
+<h2 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h2><p>정리해 보겠습니다.</p>
+<ul>
+<li><p><code>async</code>는 </p>
+<ul>
+<li><code>function</code> 앞에 사용한다.</li>
+<li>항상 <code>promise</code>를 반환한다.</li>
+<li>내부의 <code>await</code>를 사용할 수 있도록 한다.</li>
+</ul>
+</li>
+<li><p><code>await</code>는</p>
+<ul>
+<li><code>promise</code> 앞에 사용한다.</li>
+<li><code>promise</code>가 resolve 될 때까지 Javascript를 대기할 수 있게 한다.</li>
+<li>에러가 발생하는 경우 예외를 생성하는데 이는 <code>throw error</code>와 같다. 에러가 발생하지 않는다면 결과를 반환한다.</li>
+</ul>
+</li>
+<li><p><code>Promise.all</code>은</p>
+<ul>
+<li>여러 개의 <code>promise</code>를 동시에 처리하고 그 결과를 대기하는 데에 사용한다.</li>
+</ul>
+</li>
+</ul>
+<p><code>async/await</code>를 사용하다 보면 <code>promise.then/catch</code>를 사용하는 일은 드물어집니다.<br>그렇지만 <code>async/await</code>는 <code>promise</code>를 바탕으로 하고 있다는 사실은 잊으면 안 됩니다.</p>
+<h2 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h2><p style="border: 1px solid; padding: 0px 0px 10px 10px;"><br>아래의 함수들을 async/await로 변환해 보세요.<br></p>
+
+<h3 id="code-1"><a href="#code-1" class="headerlink" title="code #1"></a>code #1</h3><p>.then/catch 로 구성된 함수를 async/await 로 변경하기 (<a href="https://github.com/hapumee/demo/blob/master/async_await/async_await1.html" target="_blank" rel="noopener">code</a>)</p>
+<p>- <strong>.then/catch</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadJson</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> fetch(url).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (response.status == <span class="number">200</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> response.json();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(response.status);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">loadJson(<span class="string">'test.json'</span>).catch(alert); <span class="comment">// Error: 404</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>- <strong>async/await</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">asyncLoadJson</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> response = <span class="keyword">await</span> fetch(url);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (response.status == <span class="number">200</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> response.json();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(response.status);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// asyncLoadJson() 함수는 "async" 함수가 아니기 때문에 "await asyncLoadJson(...)"으로 작성할 수 없다.</span></span><br><span class="line"><span class="comment">// 따라서, ".catch"를 사용해야 한다.</span></span><br><span class="line">asyncLoadJson(<span class="string">'test.json'</span>).catch(alert); <span class="comment">// Error: 404</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="code-2"><a href="#code-2" class="headerlink" title="code #2"></a>code #2</h3><p>.then/catch 로 구성된 함수를 async/await 로 변경하기  (<a href="https://github.com/hapumee/demo/blob/master/async_await/async_await2.html" target="_blank" rel="noopener">code</a>)</p>
+<p>- <strong>.then/catch</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HttpError</span> <span class="keyword">extends</span> <span class="title">Error</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(response) &#123;</span><br><span class="line">        <span class="keyword">super</span>(<span class="string">`<span class="subst">$&#123;response.status&#125;</span> for <span class="subst">$&#123;response.url&#125;</span>`</span>);</span><br><span class="line">        <span class="keyword">this</span>.name = <span class="string">'HttpError'</span>;</span><br><span class="line">        <span class="keyword">this</span>.response = response;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadJson</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> fetch(url).then(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (response.status == <span class="number">200</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> response.json();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> HttpError(response);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Ask for a user name until github returns a valid user</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">demoGithubUser</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> name = prompt(<span class="string">"Enter a name?"</span>, <span class="string">"test"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> loadJson(<span class="string">`https://api.github.com/users/<span class="subst">$&#123;name&#125;</span>`</span>).then(<span class="function"><span class="params">user</span> =&gt;</span> &#123;</span><br><span class="line">        alert(<span class="string">`Full name: <span class="subst">$&#123;user.name&#125;</span>.`</span>);</span><br><span class="line">        <span class="keyword">return</span> user;</span><br><span class="line">    &#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (err <span class="keyword">instanceof</span> HttpError &amp;&amp; err.response.status == <span class="number">404</span>) &#123;</span><br><span class="line">            alert(<span class="string">"No such user, please reenter."</span>);</span><br><span class="line">            <span class="keyword">return</span> demoGithubUser();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> err;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">demoGithubUser();</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>- <strong>async/await</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HttpError</span> <span class="keyword">extends</span> <span class="title">Error</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(response) &#123;</span><br><span class="line">        <span class="keyword">super</span>(<span class="string">`<span class="subst">$&#123;response.status&#125;</span> for <span class="subst">$&#123;response.url&#125;</span>`</span>);</span><br><span class="line">        <span class="keyword">this</span>.name = <span class="string">'HttpError'</span>;</span><br><span class="line">        <span class="keyword">this</span>.response = response;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">asyncLoadJson</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> response = <span class="keyword">await</span> fetch(url);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (response.status == <span class="number">200</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> response.json();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> HttpError(response);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Ask for a user name until github returns a valid user</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">asyncDemoGithubUser</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> user;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> name = prompt(<span class="string">"Enter a name?"</span>, <span class="string">"test"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            user = <span class="keyword">await</span> asyncLoadJson(<span class="string">`https://api.github.com/users/<span class="subst">$&#123;name&#125;</span>`</span>);</span><br><span class="line">            <span class="keyword">break</span>; <span class="comment">// no error, exit loop</span></span><br><span class="line">        &#125; <span class="keyword">catch</span>(err) &#123;</span><br><span class="line">            <span class="keyword">if</span> (err <span class="keyword">instanceof</span> HttpError &amp;&amp; err.response.status == <span class="number">404</span>) &#123;</span><br><span class="line">                alert(<span class="string">"No such user, please reenter."</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// unknown error, rethrow</span></span><br><span class="line">                <span class="keyword">throw</span> err;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    alert(<span class="string">`Full name: <span class="subst">$&#123;user.name&#125;</span>.`</span>);</span><br><span class="line">    <span class="keyword">return</span> user;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">asyncDemoGithubUser();</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="code-3"><a href="#code-3" class="headerlink" title="code #3"></a>code #3</h3><p>non-async 함수에서 async 호출하기  (<a href="https://github.com/hapumee/demo/blob/master/async_await/async_await3.html" target="_blank" rel="noopener">code</a>)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"><span class="comment">// fn() 함수에서 async 함수 호출하는 코드를 작성해야 하는데...</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">setTimeoutAndCall</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">await</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> setTimeout(resolve, <span class="number">1000</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Show up 1 after 10 seconds"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// call setTimeoutAndCall() function</span></span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"><span class="comment">// fn() 함수에서 async 함수 호출!!</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnCaller</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    setTimeoutAndCall().then(<span class="function"><span class="params">result</span> =&gt;</span> alert(result)); <span class="comment">// "Show up 1 after 10 seconds"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fnCaller();</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-Async-and-Await"><span class="toc-number">1.</span> <span class="toc-text">What is Async and Await?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Async-function"><span class="toc-number">1.1.</span> <span class="toc-text">Async function</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Await"><span class="toc-number">1.2.</span> <span class="toc-text">Await</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Error-Handling"><span class="toc-number">1.3.</span> <span class="toc-text">Error Handling</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#async-await와-promise-then-catch"><span class="toc-number">1.4.</span> <span class="toc-text">async/await와 promise.then/catch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#async-await와-Promise-all"><span class="toc-number">1.5.</span> <span class="toc-text">async/await와 Promise.all</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#summary"><span class="toc-number">1.6.</span> <span class="toc-text">summary</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#문제"><span class="toc-number">1.7.</span> <span class="toc-text">문제</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#code-1"><span class="toc-number">1.7.1.</span> <span class="toc-text">code #1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#code-2"><span class="toc-number">1.7.2.</span> <span class="toc-text">code #2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#code-3"><span class="toc-number">1.7.3.</span> <span class="toc-text">code #3</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://hapumee.github.io/2019/08/23/async-and-await/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://hapumee.github.io/2019/08/23/async-and-await/&text=[Promise] Async and Await"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://hapumee.github.io/2019/08/23/async-and-await/&title=[Promise] Async and Await"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://hapumee.github.io/2019/08/23/async-and-await/&is_video=false&description=[Promise] Async and Await"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[Promise] Async and Await&body=Check out this article: https://hapumee.github.io/2019/08/23/async-and-await/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://hapumee.github.io/2019/08/23/async-and-await/&title=[Promise] Async and Await"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://hapumee.github.io/2019/08/23/async-and-await/&title=[Promise] Async and Await"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://hapumee.github.io/2019/08/23/async-and-await/&title=[Promise] Async and Await"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://hapumee.github.io/2019/08/23/async-and-await/&title=[Promise] Async and Await"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://hapumee.github.io/2019/08/23/async-and-await/&name=[Promise] Async and Await&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+      Copyright &copy; 2019 Angela MIN
+      <br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>,
+      Theme <a href="https://probberechts.github.io/hexo-theme-cactus/" target="_blank">Cactus</a>
+      <br>
+      Contact_
+      
+      
+      
+        
+          <a class="icon" target="_blank" href="http://github.com/hapumee">
+            <i class="fab fa-github"></i><!--
+      ---></a><!--
+    ---><!--
+    ---> and 
+        
+      
+        
+          <a class="icon" target="_blank" href="https://www.linkedin.com/in/young-sun-angela-min-637b036b/">
+            <i class="fab fa-linkedin"></i><!--
+      ---></a><!--
+    ---><!--
+    --->.
+        
+      
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'hapumee-minimal-life';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
