@@ -15,10 +15,10 @@ remote_theme           : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale                   : "ko-KR"
-title                    : "Hapumee's Minimal Life"
+locale                   : "en-US"
+title                    : "Angela's Minimal Life"
 title_separator          : "-"
-subtitle                 : "Front-End & Project Management" # site tagline that appears below site title in masthead
+subtitle                 : "Tech and PM Blog" # site tagline that appears below site title in masthead
 name                     : "Angela Min"
 description              : "Front-End Engineer"
 url                      : "https://hapumee.github.io"
