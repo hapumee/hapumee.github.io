@@ -1,7 +1,12 @@
 ---
-title: "여기에는 제목이 들어갑니다"
-date: 2020-01-23 01:23:45 +0900
-categories: 테스트
+title: "github.io 블로그 시작하기"
+excerpt: "GitHub Blog 서비스인 github.io 블로그 시작하기로 했다."
+last_modified_at: 2021-11-13
+categories:
+   - Blog
+tags:
+   - content
+   - Blog
 ---
 
 여기에는 내용이 들어갑니다
