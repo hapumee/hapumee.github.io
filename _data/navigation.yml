@@ -1,0 +1,10 @@
+# main links
+main:
+  - title: "Collection"
+    url: /collection-archive/
+
+sidebar:
+  - title: TECH
+    url: /docs/tech/
+  - title: PM
+    url: /docs/pm/

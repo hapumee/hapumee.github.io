@@ -11,14 +11,14 @@
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
 # theme                  : "minimal-mistakes-jekyll"
-remote_theme           : "mmistakes/minimal-mistakes"
+remote_theme             : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Angela's Minimal Life"
+title                    : "Minimal Life"
 title_separator          : "-"
-subtitle                 : "Tech and PM Blog" # site tagline that appears below site title in masthead
+subtitle                 : "Tech and PM and Me" # site tagline that appears below site title in masthead
 name                     : "Angela Min"
 description              : "Front-End Engineer"
 url                      : "https://hapumee.github.io"
@@ -126,6 +126,9 @@ author:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
+    - label: "Agile"
+      icon: "fas fa-fw fa-link"
+      url: "https://hapumee.gitbook.io/agile/"
 
 # Site Footer
 footer:
@@ -138,7 +141,7 @@ footer:
       # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url:
+      url: "https://github.com/hapumee"
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       # url:
@@ -148,6 +151,9 @@ footer:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url:
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/young-sun-angela-min-637b036b/"
 
 
 # Reading Files
@@ -274,6 +280,14 @@ compress_html:
   ignore:
     envs: development
 
+# Collections
+collections:
+  tech:
+    output: true
+    permalink: /:collection/:path/
+  pm:
+    output: true
+    permalink: /:collection/:path/
 
 # Defaults
 defaults:
@@ -286,5 +300,21 @@ defaults:
       author_profile: true
       read_time: true
       comments: # true
-      share: true
+      share: false
       related: true
+  # _tech
+  - scope:
+      path: ""
+      type: tech
+    values:
+      layout: single
+      author_profile: true
+      share: false
+  # _pm
+  - scope:
+      path: ""
+      type: pm
+    values:
+      layout: single
+      author_profile: true
+      share: false
