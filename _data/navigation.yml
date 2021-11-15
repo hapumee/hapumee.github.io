@@ -1,10 +1,10 @@
 # main links
 main:
-  - title: "Collection"
-    url: /collection-archive/
+  - title: "Categories"
+    url: /categories/
 
-sidebar:
-  - title: TECH
-    url: /docs/tech/
-  - title: PM
-    url: /docs/pm/
+#sidebar:
+#  - title: "TECH"
+#    url: /categories/tech/
+#  - title: "Project Management"
+#    url: /categories/pm/
