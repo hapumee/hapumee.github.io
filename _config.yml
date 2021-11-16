@@ -302,6 +302,7 @@ defaults:
       comments: # true
       share: false
       related: true
+      show_sidebar: true # custom attribute
   # _tech
   - scope:
       path: ""

@@ -3,5 +3,5 @@ title: "Posts by Category"
 layout: categories
 permalink: /categories/
 author_profile: true
-#show_sidebar: true
+show_sidebar: true
 ---
