@@ -4,7 +4,7 @@ main:
     url: /categories/
 
 #sidebar:
-#  - title: "TECH"
-#    url: /categories/tech/
+#  - title: "Tech"
+#    url: /categories/#tech
 #  - title: "Project Management"
-#    url: /categories/pm/
+#    url: /categories/#pm
