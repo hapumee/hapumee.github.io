@@ -1,8 +1,11 @@
 ---
-layout: post
+#layout: post
 title: "여기에는 제목이 들어갑니다"
 date: "2020-01-23 01:23:45 +0900"
 last_modified_at: "2020-01-23 01:23:45 +0900"
+author_profile: true
+show_sidebar: true
+comments: true
 categories: ["테스트", "블로그"]
 ---
 

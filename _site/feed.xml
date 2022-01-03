@@ -1,1 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-11-13T13:26:43+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Angela’s Minimal Life</title><subtitle>Front-End Engineer</subtitle><author><name>Angela Min</name></author></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-01-03T15:15:21+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Minimal Life</title><subtitle>Front-End Engineer</subtitle><author><name>Angela Min</name></author><entry><title type="html">[Agile] Definition of Done</title><link href="http://localhost:4000/agile/definition-of-done/" rel="alternate" type="text/html" title="[Agile] Definition of Done" /><published>2022-01-03T15:00:00+09:00</published><updated>2022-01-03T15:00:00+09:00</updated><id>http://localhost:4000/agile/definition-of-done</id><content type="html" xml:base="http://localhost:4000/agile/definition-of-done/">&lt;h3 id=&quot;완료의-정의&quot;&gt;완료의 정의&lt;/h3&gt;
+
+&lt;h4 id=&quot;a-task-isnt-done-until-its-done-done&quot;&gt;A task isn’t done until it’s “Done” done&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;작업은 “완료”가 되기 전에는 완료된 것이 아니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;작업에 대해서 언제 어떤 형상이 제품이나 기능의 완료된 상태인가에 대한 정의가 필요하다. 그리고 그것은 소프트웨어 제품이 충족해야 하는 모든 조건이나 수용 기준(Acceptance criteria)을 만족한 상태로 팀 또는 관련자들이 받아들일 수 있는 상태를 말하기도 한다. 이것을 &lt;strong&gt;Definition of Done - “완료에 대한 정의”&lt;/strong&gt; 라고 한다. 인수 기준(Acceptance criteria)은 프로덕트 또는 프로젝트가 반드시 달성해야 하는 기준과 요구사항을 의미한다.&lt;/p&gt;
+
+&lt;p&gt;개인은 한 순간에는 하나의 일을 처리할 수 있고 이것이 끝나야 일이 끝났다고 할 수 있다. 그렇다면 “일이 끝난다”는 것은 언제일까?&lt;/p&gt;
+
+&lt;p&gt;누구는 소소한 버그를 남겨둔 채 기본적인 동작에 대한 개발을 완성한 상태를 완료라고 하고 (보통은 1차 개발 완료 정도의 의사소통을 하기도 한다), 또 어떤 사람은 개발을 완료하고 코드 리뷰에 있는 상태를 완료라고 하기도 하고, 다른 사람은 코드를 저장소에 반영해야 완료했다고 보기도 한다.&lt;/p&gt;
+
+&lt;p&gt;또, 개발이 완료되었다고 하더라도 기획 입장에서는 소스가 빌드되어 확인할 수 있는 상태가 되어야 기능이 완료되었다고 생각할 수도 있다.&lt;/p&gt;
+
+&lt;p&gt;그래서 팀 전체가 작업이나 기능에 대한 Definition of Done(“완료에 대한 정의”)를 공유해야 한다. 완료의 정의가 서로 다르면 그것으로 인한 문제가 발생할 가능성이 크다. 정의를 충족하지 않는 유저 스토리(user stories)가 제품에 포함될 수도 있는데 이런 경우 재작업을 해야 하는 가능성이 발생한다. 또한 정의에 맞지 않는 기능이 고객이나 사용자에게 전달될 수도 있다.&lt;/p&gt;</content><author><name>Angela Min</name></author><category term="Agile" /><summary type="html">완료의 정의</summary></entry></feed>
